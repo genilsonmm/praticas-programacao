@@ -1,12 +1,12 @@
 package com.todoapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "atividade")
+//@Table(name = "atividade")
 public class Atividade {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
