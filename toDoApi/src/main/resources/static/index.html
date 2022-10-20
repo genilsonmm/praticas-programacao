@@ -5,34 +5,52 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Minhas Atividades</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- toast -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" /><!-- CSS only -->
+
 </head>
 <body>
-    <h1>Minhas atividades</h1>
+    <div id="app" class="container">
+        <div class="row">
+            <titlecomponent/>
+        </div>
 
-    <br>
+        <div class="row">
+            <div class="form-group">
+                <input v-model="atividade" class="form-control" type="text" placeholder="Digite uma atividade" />
+                <button @Click="adicionarAtividade" class="btn btn-success mt-4">Adicionar</button>
+            </div>
+        </div>
 
-    <input type="text" />
-    <button>Adicionar</button>
+        <div class="row mt-4">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Atividade</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="atv in atividades">
+                        <td>{{ atv.titulo }}</td>
+                        <td><button @Click="remover(atv.id)" class="btn btn-danger">Finalizar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-    <br>
+    <!--<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>-->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-    <table>
-        <tr>
-            <td>Titulo</td>
-            <td>Status</td>
-            <td>Ação</td>
-        </tr>
-        <tr>
-            <td>Verificar os erros no flyway</td>
-            <td>Não</td>
-            <td><button>Finalizar</button></td>
-        </tr>
-        <tr>
-            <td>Dormir</td>
-            <td>Não</td>
-            <td><button>Finalizar</button></td>
-        </tr>
-    </table>
+    <!-- Para requests -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/vueApp.js"></script>
 </body>
 </html>
